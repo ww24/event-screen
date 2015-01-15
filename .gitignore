@@ -1,0 +1,22 @@
+# Git
+.*
+!.gitignore
+!.gitkeep
+
+# Windows
+Thumbs.db
+
+# Node.js
+*.log
+node_modules
+
+# MongoDB
+db/*
+!db/mongod.conf
+
+# Config
+config/*
+!config/default.yml
+
+# EditorConfig
+!.editorconfig

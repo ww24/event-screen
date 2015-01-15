@@ -1,0 +1,39 @@
+{
+  "name": "event-screen",
+  "version": "0.0.1",
+  "description": "event screen manager",
+  "main": "server.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ww24/event-screen"
+  },
+  "keywords": [
+    "event",
+    "screen"
+  ],
+  "author": "Takenori Nakagawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ww24/event-screen/issues"
+  },
+  "homepage": "https://github.com/ww24/event-screen",
+  "dependencies": {
+    "body-parser": "^1.10.1",
+    "config": "^1.10.0",
+    "connect-mongo": "^0.6.0",
+    "csurf": "^1.6.5",
+    "express": "^4.10.7",
+    "express-session": "^1.10.1",
+    "hogan-express": "^0.5.2",
+    "js-yaml": "^3.2.5",
+    "mongoose": "^3.8.21",
+    "passport": "^0.2.1",
+    "passport-google": "^0.3.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^1.2.1",
+    "validator": "^3.27.0"
+  }
+}

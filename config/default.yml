@@ -1,0 +1,24 @@
+# default settings
+
+server:
+  port: 3000
+
+session:
+  name: evsc
+  cookie:
+    path: /
+    httpOnly: true
+    secure: false
+    maxAge: 86400000
+  secret: secret
+
+db:
+  host: 127.0.0.1
+  port: 27017
+  name: evsc
+  # user: webapp
+  # pass: webapp
+
+google:
+  returnURL: http://localhost:3000/auth/callback
+  realm: http://localhost:3000/
