@@ -13,7 +13,8 @@ var express = require("express"),
     path = require("path"),
     routes = require("./routes"),
     ioRoute = require("./io"),
-    config = require("config");
+    config = require("config"),
+    fs = require("fs");
 
 var app = express();
 
@@ -27,6 +28,22 @@ app.set("port", process.env.PORT || config.server.port || 3000);
 // view settings
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "html");
+app.set("layout", "layout");
+app.set("partials", function (dirs) {
+  var partials = {};
+
+  dirs.forEach(function (dir) {
+    fs.readdirSync(path.join(app.get("views"), dir)).forEach(function (file) {
+      var partial = path.basename(file, "." + app.get("view engine"));
+      if (~ partial.indexOf(".")) return;
+
+      partials[partial] = path.join(dir, partial);
+    });
+  });
+
+  return partials;
+}(["partials", "templates"]));
+app.locals.title = "Event Screen";
 app.engine("html", hogan);
 
 // middleware
