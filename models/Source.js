@@ -13,8 +13,11 @@ var schema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["slide", "video"],
+    enum: ["html"],
     required: true
+  },
+  url: {
+    type: [String]
   },
   created_at: {
     type: Date,
@@ -35,4 +38,4 @@ schema.pre("save", function (next) {
   next();
 });
 
-module.exports = mongoose.model("Stream", schema);
+module.exports = mongoose.model("Source", schema);

@@ -11,9 +11,9 @@ var schema = new mongoose.Schema({
     type: String,
     required: true
   },
-  stream: {
+  source: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Stream"
+    ref: "Source"
   },
   created_at: {
     type: Date,

@@ -8,7 +8,14 @@ var mongoose = require("mongoose");
 // Screen Schema definition
 var schema = new mongoose.Schema({
   socket_id: {
-    type: String
+    type: String,
+    index: {unique: true}
+  },
+  status: {
+    type: String,
+    enum: ["offline", "online"],
+    default: "online",
+    required: true
   },
   name: {
     type: String,
