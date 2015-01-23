@@ -31,7 +31,7 @@
 		</div>
 		<div class="twitter">
 			<ul class="media-list list-group">
-				<li class="list-group-item" v-repeat="tweets">
+				<li class="list-group-item" v-repeat="tweets" v-show="tweets.length > 0" style="display: none">
 					<div class="media-left">
 						<img class="media-object thumbnail twitter-icon" v-attr="src:user.profile_image_url_https">
 					</div>
