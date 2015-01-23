@@ -13,7 +13,7 @@ var schema = new mongoose.Schema({
   },
   type: {
     type: String,
-    enum: ["html"],
+    enum: ["html", "tweet"],
     required: true
   },
   url: {

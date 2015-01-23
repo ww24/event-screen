@@ -1,0 +1,76 @@
+.wrap {
+  position: relative;
+/*
+  -webkit-user-select: none;
+  -moz-select: none;
+  -ms-select: none;
+  user-select: none;
+*/
+  background-color: #eee;
+}
+
+/* overlay layer */
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  padding: 0 0 10px 0;
+  background-color: rgba(100, 100, 100, 0.5);
+  z-index: 10;
+  box-sizing: border-box;
+  font-size: 150%;
+}
+.message-wrapper {
+  height: 100%;
+  margin: 60px auto 0 auto;
+}
+.message {
+  position: relative;
+  height: 100%;
+  padding: 20px;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.screen-list input {
+  width: 100px;
+}
+
+.channel-list input {
+  width: 100px;
+}
+
+.twitter-icon {
+  width: 58px;
+  height: 58px;
+}
+
+/* drag and drop style */
+.droparea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  moz-box-sizing: border-box;
+  box-sizing: border-box;
+  z-index: 0;
+}
+.dragover {
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2000;
+  border: 10px dashed #9cf;
+}
+.dragover:after {
+  content: "Drag and Drop";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: -50px;
+  line-height: 100px;
+  text-align: center;
+  text-shadow: 2px 2px 2px #fff;
+}

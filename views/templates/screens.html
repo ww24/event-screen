@@ -1,0 +1,30 @@
+<h2>Screens</h2>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Status</th>
+			<th>Name</th>
+			<th>Channel</th>
+			<th>Operation</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr v-repeat="screens" class="screen-list">
+			<td class="text-uppercase">[[status]]</td>
+			<td>
+				<input type="text" v-model="name" v-on="change: updateScreen($event, $index)">
+			</td>
+			<td>
+				<input type="text" v-model="channel.name" v-on="change: updateScreen($event, $index)">
+			</td>
+			<td>
+				<button class="btn btn-xs btn-default" v-on="click: reload($event, $index)">
+					<span class="glyphicon glyphicon-refresh"></span>
+				</button>
+				<button class="btn btn-xs btn-danger" v-on="click: remove($event, $index)" v-if="status === 'offline'">
+					<span class="glyphicon glyphicon-remove"></span>
+				</button>
+			</td>
+		</tr>
+	</tbody>
+</table>

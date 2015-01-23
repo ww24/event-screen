@@ -1,17 +1,37 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="/vendor/css/bootstrap.min.css">
-	<link rel="stylesheet" href="/css/style.css">
-	<title>Event Screen</title>
-</head>
-<body>
-	<script src="/vendor/js/jquery.min.js"></script>
-	<script src="/vendor/js/bootstrap.min.js"></script>
-	<script src="/vendor/js/vue.min.js"></script>
-	<script src="/vendor/js/vue.min.js"></script>
-	<script src="/js/fullscreen.js"></script>
-	<script src="/js/ui.js"></script>
-</body>
-</html>
+<div class="wrap">
+	{{> menu}}
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6">
+				<div v-component="screens"></div>
+			</div>
+			<div class="col-md-6">
+				<div v-component="channels"></div>
+				<div v-component="sources"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script id="screens-template" type="text/x-template">
+{{> screens}}
+</script>
+<script id="channels-template" type="text/x-template">
+{{> channels}}
+</script>
+<script id="sources-template" type="text/x-template">
+{{> sources}}
+</script>
+
+{{> modal}}
+
+{{#yield-script}}
+<script src="/js/components/screens.js"></script>
+<script src="/js/components/channels.js"></script>
+<script src="/js/components/sources.js"></script>
+<script src="/js/components/create-channel-modal.js"></script>
+<script src="/js/components/create-source-modal.js"></script>
+<script src="/js/components/create-message-modal.js"></script>
+<script src="/js/admin.js"></script>
+{{/yield-script}}

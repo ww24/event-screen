@@ -1,0 +1,49 @@
+<div class="modal-dialog">
+	<form v-on="submit: create" class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal">&times;</button>
+			<h4 class="modal-title">
+				<span class="glyphicon glyphicon-plus"></span> Add a new source
+			</h4>
+		</div>
+		<div class="modal-body">
+			<div class="form-horizontal">
+				<div class="form-group">
+					<label class="col-xs-3 control-label">name</label>
+					<div class="col-xs-9">
+						<input class="form-control" type="text" name="name" required>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label">type</label>
+					<div class="col-xs-9">
+						<input class="form-control" type="text" name="type">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-xs-3 control-label">url</label>
+					<div class="col-xs-9">
+						<input class="form-control" type="text" name="url">
+					</div>
+				</div>
+				<div v-show="error_message.length > 0" class="alert alert-danger">
+					[[error_message]]
+				</div>
+				<div class="panel panel-info">
+					<div class="panel-heading">
+						Tips
+					</div>
+					<div class="panel-body">
+						<p>Source には URL や HTML 、画像が指定できます。</p>
+						<p>現状、 type には <code>html</code> or <code>tweet</code> のみ指定できます。</p>
+						<p><code>type = "tweet"</code> の場合は <code>url</code> に検索ワードを設定してください。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+			<button class="btn btn-primary submit-button" data-loading-text="Saving..." type="submit">Add</button>
+		</div>
+	</form>
+</div>

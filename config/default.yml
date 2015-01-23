@@ -22,3 +22,7 @@ db:
 google:
   returnURL: http://localhost:3000/auth/callback
   realm: http://localhost:3000/
+
+twitter:
+  consumer_key: key
+  consumer_secret: secret
