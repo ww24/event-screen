@@ -4,6 +4,10 @@
  */
 /* globals AudioContext */
 
+if (! window.AudioContext) {
+  alert("お使いのブラウザは対応してません。");
+}
+
 function Sound(url) {
   var sound = this;
 

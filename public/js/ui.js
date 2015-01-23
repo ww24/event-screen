@@ -9,7 +9,7 @@ Vue.config.delimiters = ["[", "]"];
 (function (socket) {
   // sound preload
   var sounds = {
-    notify: new Sound("/sound/se_pinponpan01.mp3")
+    notify: new Sound("/sounds/se_pinponpan01.webm")
   };
 
   var vm = new Vue({
