@@ -112,10 +112,14 @@ module.exports = function () {
         return screen.save();
       }).then(function () {
         updateScreen(admin);
-        io.to(screen.socket_id).emit("update", screen.toJSON());
+
+        // update screen front-end
+        screen = screen.toJSON();
+        screen.channel = channel.toJSON();
+        io.to(screen.socket_id).emit("update", screen);
 
         if (String(channel_id_org) === String(channel._id)) {
-          return callback && callback(null, channel.toJSON());
+          return callback && callback("not modified", channel.toJSON());
         }
 
         var room_info = socket.adapter.sids[screen.socket_id];
@@ -126,6 +130,7 @@ module.exports = function () {
             io.to(screen.socket_id).leave(room);
           });
         }
+        console.log("join", screen.name, channel.name);
         io.to(screen.socket_id).join(channel.name);
         callback && callback(null, screen.toJSON());
       }, function (err) {
@@ -187,6 +192,7 @@ module.exports = function () {
       if (info.message === "") {
         delete info.sound;
       }
+      console.log("notify", info.channel.name);
       io.to(info.channel.name).emit("notify", {
         sound: info.sound || null,
         message: info.message
