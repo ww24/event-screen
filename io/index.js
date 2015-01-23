@@ -12,7 +12,7 @@ module.exports = function () {
   var io = this;
 
   admin.call(io);
-  sources.twitter.call(io, "#ggjsap", "A1");
+  sources.twitter.call(io, "#ggjsap", "twitter");
 
   // // load sources
   // models.Source.find({
