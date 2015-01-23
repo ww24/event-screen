@@ -27,9 +27,12 @@ module.exports = function () {
   // });
 
   // set offline
-  models.Screen.update({}, {
-    status: "offline"
-  }).exec();
+  models.Screen.find().exec().then(function (screens) {
+    screens.forEach(function (screen) {
+      screen.status = "offline";
+      screen.save();
+    });
+  });
 
   io.on("connection", function (socket) {
     // スクリーン追加時処理
