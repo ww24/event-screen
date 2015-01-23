@@ -1,8 +1,3 @@
-# Git
-.*
-!.gitignore
-!.gitkeep
-
 # Windows
 Thumbs.db
 
@@ -22,4 +17,9 @@ config/*
 !.editorconfig
 
 # Sounds
-public/sound/*
+public/sounds/*
+
+# Git
+.*
+!.gitignore
+!.gitkeep
