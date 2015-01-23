@@ -34,7 +34,6 @@ Vue.config.delimiters = ["[", "]"];
         var tweet_json = sessionStorage.getItem("tweets");
         // restore tweets stream
         if (channel.type === "tweet" && channel.name === sessionStorage.getItem("channel") && tweet_json) {
-          console.log(JSON.parse(tweet_json));
           this.$data.tweets = this.$data.tweets.concat(JSON.parse(tweet_json));
         }
       });
@@ -53,7 +52,7 @@ Vue.config.delimiters = ["[", "]"];
             socket.emit("join", {
               name: name
             }, function (err, screen) {
-              console.log(err, screen);
+              console.log("connect-join-A", err, screen);
 
               that.$data.connected = true;
               var url = "/screen/" + screen._id;
@@ -68,13 +67,14 @@ Vue.config.delimiters = ["[", "]"];
             socket.emit("join", {
               screen_id: _id
             }, function (err, screen) {
-              console.log(err, screen);
+              console.log("connect-join-B", err, screen);
 
               that.$data.connected = true;
               that.$data.name = screen.name;
-              that.$data.channel = screen.channel.name;
-
-              that.$emit("restore", screen.channel);
+              if (screen.channel) {
+                that.$data.channel = screen.channel.name;
+                that.$emit("restore", screen.channel);
+              }
             });
           }
         }).on("error", function (err) {
@@ -82,7 +82,7 @@ Vue.config.delimiters = ["[", "]"];
         });
 
         socket.on("data", function (data) {
-          console.log(data);
+          console.log("data", data);
         });
 
         socket.on("tweet", function (tweet) {
@@ -97,7 +97,7 @@ Vue.config.delimiters = ["[", "]"];
         });
 
         socket.on("update", function (screen) {
-          console.log(screen);
+          console.log("update", screen);
           that.$data.name = screen.name;
           that.$data.channel = screen.channel.name;
         });
@@ -107,7 +107,7 @@ Vue.config.delimiters = ["[", "]"];
         });
 
         socket.on("notify", function (info) {
-          console.log(info);
+          console.log("notify", info);
           if (info.sound && sounds[info.sound]) {
             sounds[info.sound].play();
           }
