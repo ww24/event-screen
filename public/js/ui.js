@@ -2,7 +2,7 @@
  * Event Screen
  * screen side ui
  */
-/* globals Vue, io, Sound */
+/* globals Vue, io, Sound, fullscreen */
 
 Vue.config.delimiters = ["[", "]"];
 
@@ -115,6 +115,14 @@ Vue.config.delimiters = ["[", "]"];
             that.$data.message = info.message;
           }
         });
+      },
+      fullscreen: function () {
+        var is_fullscreen = fullscreen.check();
+        var cancel = fullscreen(document.getElementById("container"));
+
+        if (is_fullscreen) {
+          cancel();
+        }
       }
     }
   });

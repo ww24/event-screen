@@ -13,14 +13,30 @@ function fullscreen(element) {
   element.style.width = screen.width + "px";
   element.style.height = screen.height + "px";
 
-  if (element.webkitRequestFullScreen) {
-    element.webkitRequestFullScreen();
+  var requestFullScreen = element.RequestFullScreen || element.webkitRequestFullScreen || element.mozRequestFullScreen;
+
+  if (requestFullScreen) {
+    requestFullScreen.call(element);
     return function () {
       element.style.width = size.width;
-      element.style.height = size.height;      
-      document.webkitCancelFullScreen();
+      element.style.height = size.height;
+      fullscreen.cancel();
     };
   } else {
     return false;
   }
 }
+
+fullscreen.check = function () {
+  return document.isFullScreen || document.webkitIsFullScreen || document.mozFullScreen;
+};
+
+fullscreen.cancel = function () {
+  var cancelFullScreen = document.cancelFullScreen || document.webkitCancelFullScreen || document.mozCancelFullScreen;
+  if (cancelFullScreen) {
+    cancelFullScreen.call(document);
+    return true;
+  } else {
+    return false;
+  }
+};

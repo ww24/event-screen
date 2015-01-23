@@ -1,4 +1,4 @@
-<div class="wrap index">
+<div id="container" class="wrap index">
 	<div class="overlay" v-show="message" style="display: none">
 		<div class="container message-wrapper">
 			<div class="message">[[message]]</div>
@@ -21,6 +21,9 @@
 				</form>
 				<p class="navbar-text navbar-left" v-if="connected">[[name]]</p>
 				<p class="navbar-text navbar-right" v-if="connected">Channel: [[channel]]</p>
+				<button class="btn btn-default navbar-btn navbar-right" v-on="click: fullscreen">
+					<span class="glyphicon glyphicon-fullscreen"></span>
+				</button>
 			</div>
 		</div>
 	</header>
