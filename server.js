@@ -110,12 +110,7 @@ app.use(function(err, req, res, next) {
   });
 });
 
-if (module.parent) {
-  // for API test
-  module.exports = app;
-} else {
-  // start server
-  http.listen(app.get("port"), function () {
-    console.log("Event Screen Server started at " + app.get("port"));
-  });
-}
+// start server
+http.listen(app.get("port"), function () {
+  console.log("Event Screen Server started at " + app.get("port"));
+});
